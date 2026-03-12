@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVCommander — Professional AV Control</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .card {
+            max-width: 500px;
+            width: 100%;
+            background: #2d1b3c;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.7);
+            margin: 20px auto;
+        }
+        
+        .top {
+            background: #7b4f9e;
+            padding: 30px 30px 20px;
+            text-align: center;
+        }
+        
+        h1 {
+            color: white;
+            font-size: 32px;
+            margin-bottom: 5px;
+        }
+        
+        .subheader {
+            color: white;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .tagline {
+            color: #b79cd9;
+            font-size: 15px;
+            font-style: italic;
+        }
+        
+        .form-section {
+            padding: 25px 30px 30px;
+        }
+        
+        .description {
+            color: white;
+            margin-bottom: 20px;
+            line-height: 1.5;
+            font-size: 14px;
+            background: #3a2350;
+            padding: 16px;
+            border-radius: 16px;
+        }
+        
+        .description strong {
+            color: white;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 12px;
+            border: 1.5px solid #6b4f8a;
+            border-radius: 12px;
+            font-size: 14px;
+            font-family: inherit;
+            background: white;        
+            color: #1a0b2e;           
+        }
+        
+        input::placeholder, textarea::placeholder {
+            color: #6b4f8a;           
+            opacity: 1;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #a27bcf;
+            background: #f8f0ff;      
+        }
+        
+        textarea {
+            min-height: 70px;
+            resize: vertical;
+        }
+        
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #7b4f9e;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 5px 0 15px;
+            transition: background 0.2s;
+        }
+        
+        button:hover {
+            background: #9b6fc7;
+        }
+        
+        .privacy {
+            text-align: center;
+            font-size: 13px;
+            color: #b79cd9;
+        }
+        
+        .privacy a {
+            color: #d0bfff;
+            text-decoration: none;
+        }
+        
+        .privacy a:hover {
+            text-decoration: underline;
+        }
+        
+        .success {
+            display: none;
+            background: #5f3b7a;
+            color: #e0d0ff;
+            padding: 12px;
+            border-radius: 12px;
+            margin: 10px 0;
+            text-align: center;
+            font-size: 14px;
+            border: 1px solid #a27bcf;
+        }
+        
+        .modal-content {
+            background: #2d1b3c;
+            max-width: 400px;
+            width: 90%;
+            max-height: 80vh;
+            padding: 25px;
+            border-radius: 20px;
+            border: 1px solid #a27bcf;
+            overflow-y: auto;
+            margin: 20px;
+        }
+        
+        .modal-content h3 {
+            margin-bottom: 15px;
+            color: white;
+            font-size: 20px;
+        }
+        
+        .modal-content p {
+            margin-bottom: 20px;
+            color: #e0d0ff;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        
+        .modal-content button {
+            width: auto;
+            padding: 10px 25px;
+            margin: 0;
+            background: #7b4f9e;
+        }
+        
+        #privacyModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            z-index: 1000;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="top">
+            <h1>AVCommander app</h1>
+            <div class="subheader">(iPhone and iPad)</div>
+            <div class="tagline">Professional AV control</div>
+        </div>
+        
+        <div class="form-section">
+            <div class="description">
+                <strong>Turn your device into a professional AV control center.</strong><br><br>
+                Communicate with any equipment via <strong>TCP, UDP, HTTP, Telnet, or SSH</strong> to manage audio, video, DSP, and PTZ cameras.<br><br>
+                Build your own custom interface in any of <strong>17 languages</strong>, adding your own buttons, toggles, and sliders to control it all, exactly the way you want.
+            </div>
+            
+            <form id="subscribeForm" target="hidden_iframe" method="POST" 
+                action="https://docs.google.com/forms/d/e/1yIe0nkLj5FbKWb1b9K-Sis8oQdkkAjyIrTMv7FK_6yI/formResponse">
+      
+                <input type="text" name="entry.1151277867" id="nameField" placeholder="Your name" required>
+                <input type="email" name="entry.2054839464" id="emailField" placeholder="Your email" required>
+                <textarea name="entry.1103374442" id="questionField" placeholder="Your question"></textarea>
+    
+                <button type="submit">Send</button>
+            </form>
+            
+            <iframe name="hidden_iframe" style="display:none"></iframe>
+            
+            <div id="successMessage" class="success">
+                Thank you for your question.
+            </div>
+            
+            <div class="privacy">
+                <a href="#" id="privacyLink">Privacy Policy</a> • alexastafew@gmail.com
+            </div>
+        </div>
+    </div>
+    
+    <div id="privacyModal">
+        <div class="modal-content">
+            <h3>Privacy Policy</h3>
+            <p>
+                This Privacy Policy outlines the approach of this App regarding the handling of private data, aiming to prevent the leakage of your data. Please read this Privacy Policy carefully.<br><br>
+                
+                <strong>1. Private Information</strong><br>
+                This application is a standalone app that does not collect any personal information from users, nor does it upload any user information.<br><br>
+                
+                <strong>2. Data Sharing Authorization</strong><br>
+                This application does not share any user data with third parties. All device configurations and settings remain exclusively on your device.<br><br>
+                
+                <strong>3. Information Storage</strong><br>
+                All request information collected by AVCmd will be stored on the current device. This information will not be uploaded to any server and will only be viewed and shared by the user.<br><br>
+                
+                <strong>4. Information Security</strong><br>
+                The HTTPS decryption certificate for each device is generated individually. Unless you actively share it, others cannot obtain your certificate.<br><br>
+                
+                <strong>5. Network Security</strong><br>
+                This application communicates with AV equipment over local network using TCP, UDP, Telnet and HTTP protocols. For HTTP connections requiring authentication, your login credentials are stored locally on your device. You are responsible for maintaining the security of your network and connected devices.<br><br>
+                
+                <strong>6. Privacy Concerns</strong><br>
+                If you have any questions or concerns regarding our privacy policy or data handling practices, please email us at alexastafew@gmail.com<br><br>
+                
+                Last Updated: March 8, 2026
+            </p>
+            <button onclick="document.getElementById('privacyModal').style.display='none'">Close</button>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('subscribeForm').addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            
+            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxAT1u6_xNDQL7cmXAoWkhmenASSUttDgHukbSf1yZGKhsc8Na0L9zHREd7PESa65Yz/exec';
+            
+            const formData = new FormData(this);
+            const successDiv = document.getElementById('successMessage');
+            
+            successDiv.style.display = 'block';
+            successDiv.textContent = 'Send...';
+            
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.result === 'success') {
+                    successDiv.textContent = 'Thank you for your question.';
+
+                    document.getElementById('nameField').value = '';
+                    document.getElementById('emailField').value = '';
+                    document.getElementById('questionField').value = '';
+                } else {
+                    successDiv.textContent = 'Ошибка: ' + data.message;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                successDiv.textContent = 'Thank you for your question.';
+            })
+            .finally(() => {
+                setTimeout(() => {
+                    successDiv.style.display = 'none';
+                }, 3000);
+            });
+        });
+    </script>
+</body>
+</html>
