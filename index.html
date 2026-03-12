@@ -74,6 +74,43 @@
             color: white;
         }
         
+        /* Блок библиотеки драйверов */
+        .drivers-section {
+            background: #3a2350;
+            border-radius: 16px;
+            padding: 15px;
+            margin: 20px 0;
+            border: 1px solid #6b4f8a;
+            text-align: center;
+        }
+        
+        .drivers-link {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .drivers-icon {
+            font-size: 24px;
+        }
+        
+        .drivers-title {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .drivers-badge {
+            background: #7b4f9e;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
         input, textarea {
             width: 100%;
             padding: 12px;
@@ -210,6 +247,17 @@
                 Build your own custom interface in any of <strong>17 languages</strong>, adding your own buttons, toggles, and sliders to control it all, exactly the way you want.
             </div>
             
+            <!-- БЛОК: Drivers Library -->
+            <div class="drivers-section">
+                <a href="https://github.com/alastafew/drivers-library" 
+                   target="_blank" 
+                   class="drivers-link">
+                    <span class="drivers-icon">📁</span>
+                    <span class="drivers-title">Drivers Library</span>
+                    <span class="drivers-badge">NEW</span>
+                </a>
+            </div>
+            
             <form id="subscribeForm" target="hidden_iframe" method="POST" 
                 action="https://docs.google.com/forms/d/e/1yIe0nkLj5FbKWb1b9K-Sis8oQdkkAjyIrTMv7FK_6yI/formResponse">
       
@@ -282,7 +330,6 @@
             .then(data => {
                 if (data.result === 'success') {
                     successDiv.textContent = 'Thank you for your question.';
-
                     document.getElementById('nameField').value = '';
                     document.getElementById('emailField').value = '';
                     document.getElementById('questionField').value = '';
@@ -299,6 +346,17 @@
                     successDiv.style.display = 'none';
                 }, 3000);
             });
+        });
+
+        document.getElementById('privacyLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('privacyModal').style.display = 'flex';
+        });
+        
+        window.addEventListener('click', function(e) {
+            if (e.target === document.getElementById('privacyModal')) {
+                document.getElementById('privacyModal').style.display = 'none';
+            }
         });
     </script>
 </body>
