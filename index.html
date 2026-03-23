@@ -2,220 +2,333 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AVCommander — Professional AV Control</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>AVCommander — Professional AV Control for iPhone & iPad</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: Helvetica, Arial, sans-serif;
             background: white;
-            min-height: 100vh;
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            padding: 20px;
-            overflow-y: auto;
-        }
-        
-        .card {
-            max-width: 500px;
-            width: 100%;
-            background: #2d1b3c;
-            border-radius: 30px;
-            overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.7);
-            margin: 20px auto;
-        }
-        
-        .top {
-            background: #7b4f9e;
-            padding: 30px 30px 20px;
-            text-align: center;
-        }
-        
-        h1 {
-            color: white;
-            font-size: 32px;
-            margin-bottom: 5px;
-        }
-        
-        .subheader {
-            color: white;
-            font-size: 16px;
-            margin-bottom: 5px;
-        }
-        
-        .tagline {
-            color: #b79cd9;
-            font-size: 15px;
-            font-style: italic;
-        }
-        
-        .form-section {
-            padding: 25px 30px 30px;
-        }
-        
-        .description {
-            color: white;
-            margin-bottom: 20px;
+            color: #1d1d1f;
             line-height: 1.5;
-            font-size: 14px;
-            background: #3a2350;
-            padding: 16px;
-            border-radius: 16px;
+            -webkit-font-smoothing: antialiased;
         }
-        
-        .description strong {
-            color: white;
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
         }
-        
-        /* Блок библиотеки драйверов */
-        .drivers-section {
-            background: #3a2350;
-            border-radius: 16px;
-            padding: 15px;
-            margin: 20px 0;
-            border: 1px solid #6b4f8a;
-            text-align: center;
+
+        h1, h2, h3, p, a, span, div, input, textarea, button {
+            font-family: Helvetica, Arial, sans-serif;
         }
-        
-        .drivers-link {
+
+        h1, h2, h3 {
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .subhead {
+            font-size: 1.2rem;
+            color: #6b6b70;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .navbar {
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .app-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(123, 79, 158, 0.3);
+            object-fit: cover;
+            border: 1px solid rgba(123, 79, 158, 0.2);
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #5a3087, #9b6fc7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
             text-decoration: none;
+            color: #1d1d1f;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: #7b4f9e;
+        }
+
+        .btn-outline {
+            border: 1.5px solid #7b4f9e;
+            color: #7b4f9e;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn-outline:hover {
+            background: #7b4f9e;
+            color: white !important;
+        }
+
+        .hero {
+            padding: 40px 0 60px;
+        }
+
+        .hero-grid {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .hero-content {
+            flex: 1 1 400px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-content .badge {
+            display: inline-block;
+            background: #e8e1f2;
+            color: #5a2e8a;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 6px 16px;
+            border-radius: 40px;
+            margin-bottom: 20px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin: 30px 0 20px;
+        }
+
+        .btn-primary {
+            background: #7b4f9e;
+            color: white;
+            text-decoration: none;
+            padding: 14px 34px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            transition: background 0.2s;
+            box-shadow: 0 10px 20px -8px rgba(58, 27, 94, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: #5a2e8a;
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #1d1d1f;
+            border: 1.5px solid #c6c6c8;
+            text-decoration: none;
+            padding: 14px 34px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: border 0.2s;
+        }
+
+        .btn-secondary:hover {
+            border-color: #7b4f9e;
+        }
+
+        .hero-mockup {
+            flex: 1 1 300px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-mockup img {
+            max-width: 100%;
+            height: auto;
+            background: transparent;
+        }
+
+        .features {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: #f9f9fb;
+            padding: 32px 24px;
+            border-radius: 28px;
+            border: 1px solid #f0f0f3;
+            transition: transform 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .app-icon-large {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #5a2e8a, #7b4f9e);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-        }
-        
-        .drivers-icon {
-            font-size: 24px;
-        }
-        
-        .drivers-title {
-            color: white;
-            font-size: 18px;
-            font-weight: 600;
-        }
-        
-        .drivers-badge {
-            background: #7b4f9e;
-            color: white;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-        
-        input, textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 12px;
-            border: 1.5px solid #6b4f8a;
-            border-radius: 12px;
-            font-size: 14px;
-            font-family: inherit;
-            background: white;        
-            color: #1a0b2e;           
-        }
-        
-        input::placeholder, textarea::placeholder {
-            color: #6b4f8a;           
-            opacity: 1;
-        }
-        
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: #a27bcf;
-            background: #f8f0ff;      
-        }
-        
-        textarea {
-            min-height: 70px;
-            resize: vertical;
-        }
-        
-        button {
-            width: 100%;
-            padding: 14px;
-            background: #7b4f9e;
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            margin: 5px 0 15px;
-            transition: background 0.2s;
-        }
-        
-        button:hover {
-            background: #9b6fc7;
-        }
-        
-        .privacy {
-            text-align: center;
-            font-size: 13px;
-            color: #b79cd9;
-        }
-        
-        .privacy a {
-            color: #d0bfff;
-            text-decoration: none;
-        }
-        
-        .privacy a:hover {
-            text-decoration: underline;
-        }
-        
-        .success {
-            display: none;
-            background: #5f3b7a;
-            color: #e0d0ff;
-            padding: 12px;
-            border-radius: 12px;
-            margin: 10px 0;
-            text-align: center;
-            font-size: 14px;
-            border: 1px solid #a27bcf;
-        }
-        
-        .modal-content {
-            background: #2d1b3c;
-            max-width: 400px;
-            width: 90%;
-            max-height: 80vh;
-            padding: 25px;
-            border-radius: 20px;
-            border: 1px solid #a27bcf;
-            overflow-y: auto;
-            margin: 20px;
-        }
-        
-        .modal-content h3 {
-            margin-bottom: 15px;
-            color: white;
-            font-size: 20px;
-        }
-        
-        .modal-content p {
             margin-bottom: 20px;
-            color: #e0d0ff;
-            line-height: 1.6;
-            font-size: 14px;
+            box-shadow: 0 10px 20px rgba(123, 79, 158, 0.3);
         }
-        
-        .modal-content button {
-            width: auto;
-            padding: 10px 25px;
-            margin: 0;
-            background: #7b4f9e;
+
+        .app-icon-large span {
+            font-size: 2rem;
+            font-weight: 600;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
-        
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: #515154;
+        }
+
+        .privacy-banner {
+            background: #1d1d1f;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .privacy-banner h2 {
+            color: white;
+        }
+
+        .privacy-banner p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: #a1a1a6;
+            font-size: 1.1rem;
+        }
+
+        .pill {
+            background: #2a2a2e;
+            color: #f5f5f7;
+            padding: 8px 20px;
+            border-radius: 60px;
+            display: inline-block;
+            font-weight: 500;
+        }
+
+        .footer {
+            background: #f0eaf8;
+            padding: 50px 0 30px;
+            border-top: 1px solid #e5e5ea;
+        }
+
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .footer-col p {
+            color: #636366;
+            margin: 10px 0;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #1d1d1f;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: #7b4f9e;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 50px;
+            color: #8e8e93;
+            font-size: 0.8rem;
+        }
+
         #privacyModal {
             display: none;
             position: fixed;
@@ -228,135 +341,482 @@
             justify-content: center;
             padding: 20px;
             z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            padding: 30px;
+            border-radius: 36px;
             overflow-y: auto;
+            box-shadow: 0 40px 60px rgba(0,0,0,0.5);
+        }
+
+        .modal-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .modal-content p {
+            margin-bottom: 20px;
+            color: #3a3a3c;
+        }
+
+        .modal-content button {
+            background: #5a2e8a;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 16px 20px;
+            border: 1.5px solid #e5e5ea;
+            border-radius: 30px;
+            font-size: 1rem;
+            background: white;
+            font-family: Helvetica, Arial, sans-serif;
+            transition: border-color 0.2s;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #7b4f9e;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .success-message {
+            background: #e5e5ea;
+            color: #7b4f9e;
+            padding: 12px;
+            border-radius: 30px;
+            text-align: center;
+            margin: 10px 0;
+            display: none;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+        
+        .error-message {
+            background: #ffe5e5;
+            color: #d32f2f;
+            padding: 12px;
+            border-radius: 30px;
+            text-align: center;
+            margin: 10px 0;
+            display: none;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+        
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 0.8s linear infinite;
+            margin-right: 8px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .btn-primary.loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: #1a1a1e;
+                color: white;
+            }
+            
+            .nav-links a {
+                color: white;
+            }
+            
+            .features {
+                background: #1a1a1e;
+            }
+            
+            .feature-card {
+                background: #2c2c2e;
+                border-color: #3a3a3c;
+            }
+            
+            .feature-card p {
+                color: #aeaeb2;
+            }
+            
+            .footer {
+                background: #1a1a1e;
+                border-top-color: #3a3a3c;
+            }
+            
+            .footer-links a {
+                color: white;
+            }
+            
+            .footer-col p {
+                color: #aeaeb2;
+            }
+            
+            .btn-secondary {
+                color: white;
+                border-color: #3a3a3c;
+            }
+            
+            .logo {
+                background: white;
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                color: transparent;
+            }
+            
+            .success-message {
+                background: #2c2c2e;
+                color: #b79cd9;
+            }
+            
+            .error-message {
+                background: #2c1a1a;
+                color: #ff8a8a;
+            }
+            
+            .modal-content {
+                background: #2c2c2e;
+            }
+            
+            .modal-content p {
+                color: #aeaeb2;
+            }
+            
+            input, textarea {
+                background: #2c2c2e;
+                border-color: #3a3a3c;
+                color: white;
+            }
+            
+            input:focus, textarea:focus {
+                border-color: #9b6fc7;
+            }
+        }
+
+        @media (max-width: 700px) {
+            h1 { font-size: 2.2rem; }
+            .hero-grid { flex-direction: column-reverse; }
+            .navbar { flex-direction: column; align-items: start; }
         }
     </style>
 </head>
 <body>
-    <div class="card">
-        <div class="top">
-            <h1>AVCommander app</h1>
-            <div class="subheader">(iPhone and iPad)</div>
-            <div class="tagline">Professional AV control</div>
-        </div>
-        
-        <div class="form-section">
-            <div class="description">
-                <strong>Turn your device into a professional AV control center.</strong><br><br>
-                Communicate with any equipment via <strong>TCP, UDP, HTTP, Telnet, or SSH</strong> to manage audio, video, DSP, and PTZ cameras.<br><br>
-                Build your own custom interface in any of <strong>17 languages</strong>, adding your own buttons, toggles, and sliders to control it all, exactly the way you want.
+    <div class="container">
+        <nav class="navbar"> 
+            <div class="logo-wrapper"> 
+                <img src="https://drive.google.com/thumbnail?id=1q1RRhGPpkfMnMT8rb7ZKbCI7XGH3jdva&sz=w200" alt="AVCommander App Icon" class="app-icon" onerror="this.style.display='none'">
+                <div class="logo" style="font-size: 1.8rem;">AVCommander</div>
             </div>
-            
-            <!-- БЛОК: Drivers Library -->
-            <div class="drivers-section">
-                <a href="https://github.com/alastafew/drivers-library" 
-                   target="_blank" 
-                   class="drivers-link">
-                    <span class="drivers-icon">📁</span>
-                    <span class="drivers-title">Drivers Library</span>
-                    <span class="drivers-badge">NEW</span>
+            <div class="nav-links">
+                <a href="#" id="driversLink">Drivers Library</a>
+                <a href="#contact" id="faqLink">FAQ</a>
+                <a href="#" id="privacyLink">Privacy Policy</a>
+                <a href="https://apps.apple.com/en/app/avcommander/id6760185878" class="btn-outline">Download for iPhone</a>
+            </div>
+        </nav>
+    </div>
+
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="badge">iOS</span>
+                <h1>Turn your device into a <span style="color: #7b4f9e;">professional AV Control center.</span></h1>
+                <p class="subhead">Communicate with any equipment via TCP, UDP, HTTP, Telnet, or SSH to manage audio, video, DSP, and PTZ cameras.</p>
+                <p class="subhead">Build your own custom interface in any of 17 languages, adding your own buttons, toggles, and sliders to control it all, exactly the way you want.</p>
+                <div class="hero-buttons">
+                    <a href="https://apps.apple.com/en/app/avcommander/id6760185878" class="btn-primary">Download on the App Store</a>
+                </div>
+            </div>
+            <div class="hero-mockup">
+                <img src="https://drive.google.com/thumbnail?id=1do5I7lk2kRlTpJulEoKFhiRs49nEpUvQ&sz=w800" alt="AVCommander on iPhone">
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2>Built for professionals. Works instantly.</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="app-icon-large">
+                        <span>1</span>
+                    </div>
+                    <h3>Add Your Device</h3>
+                    <p>Camera, Audio, Video, Congress System, Codec and Other categorys. The app provides basic commands for each, but you can easily extend them.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="app-icon-large">
+                        <span>2</span>
+                    </div>
+                    <h3>Easy To Use</h3>
+                    <p>Build your own interface with buttons, sliders, and toggles. Set device-specific settings.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="app-icon-large">
+                        <span>3</span>
+                    </div>
+                    <h3>Save Config File.</h3>
+                    <p>Just enter the IP address, port, and API commands. For even faster setup, you can upload pre-configured commands via a JSON file</p>
+                </div>
+            </div>
+            <div style="background: #f0eaf8; border-radius: 60px; padding: 30px; margin-top: 50px; text-align: center;">
+                <a href="https://github.com/alastafew/drivers-library" target="_blank" style="text-decoration: none; color: #1d1d1f; display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                    <span style="font-weight: 600; font-size: 1.5rem;">Drivers Library</span>
+                    <span style="background: #7b4f9e; color: white; padding: 5px 18px; border-radius: 40px; font-size: 0.9rem;">NEW</span>
                 </a>
             </div>
-            
-            <form id="subscribeForm" target="hidden_iframe" method="POST" 
-                action="https://docs.google.com/forms/d/e/1yIe0nkLj5FbKWb1b9K-Sis8oQdkkAjyIrTMv7FK_6yI/formResponse">
-      
-                <input type="text" name="entry.1151277867" id="nameField" placeholder="Your name" required>
-                <input type="email" name="entry.2054839464" id="emailField" placeholder="Your email" required>
-                <textarea name="entry.1103374442" id="questionField" placeholder="Your question"></textarea>
-    
-                <button type="submit">Send</button>
+        </div>
+    </section>
+
+    <div class="container" style="padding: 60px 0;" id="contact">
+        <div style="max-width: 600px; margin: 0 auto; background: white; border-radius: 40px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 2px solid #f0eaf8;">
+            <h2 style="margin-bottom: 10px; color: #7b4f9e;">Have a question?</h2>
+        
+            <form id="subscribeForm">
+                <div class="form-group">
+                    <input type="text" id="nameField" name="entry.1151277867" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="emailField" name="entry.2054839464" placeholder="Your email" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="questionField" name="entry.1103374442" placeholder="Your question (max 450 characters)" maxlength="450"></textarea>
+                </div>
+                <button type="submit" id="submitButton" class="btn-primary" style="width: 100%;">Send</button>
+                <div id="successMessage" class="success-message"></div>
+                <div id="errorMessage" class="error-message"></div>
             </form>
-            
-            <iframe name="hidden_iframe" style="display:none"></iframe>
-            
-            <div id="successMessage" class="success">
-                Thank you for your question.
-            </div>
-            
-            <div class="privacy">
-                <a href="#" id="privacyLink">Privacy Policy</a> • alexastafew@gmail.com
+
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="#" id="privacyLink2" style="color: #7b4f9e;">Privacy Policy</a>
+                <span style="margin: 0 10px;">•</span>
+                <a href="mailto:alexastafew@gmail.com" style="color: #7b4f9e;">alexastafew@gmail.com</a>
             </div>
         </div>
     </div>
-    
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+                        <img src="https://drive.google.com/thumbnail?id=1q1RRhGPpkfMnMT8rb7ZKbCI7XGH3jdva&sz=w200" alt="AVCommander App Icon" class="app-icon" style="width: 40px; height: 40px;" onerror="this.style.display='none'">
+                        <div class="logo" style="font-size: 1.8rem;">AVCommander</div>
+                    </div>
+                    <p>Professional AV control for iPhone and iPad.</p>
+                </div>
+                <div class="footer-links">
+                    <div>
+                        <a href="#" id="driversLink2">Drivers Library</a>
+                        <a href="#contact" id="faqLink2">FAQ</a>
+                    </div>
+                    <div>
+                        <a href="#" id="privacyLink3">Privacy Policy</a>
+                        <a href="https://apps.apple.com/en/app/avcommander/id6760185878">Download for iPad</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                © <script>document.write(new Date().getFullYear())</script> AVCommander.
+            </div>
+        </div>
+    </footer>
+
     <div id="privacyModal">
         <div class="modal-content">
-            <h3>Privacy Policy</h3>
-            <p>
-                This Privacy Policy outlines the approach of this App regarding the handling of private data, aiming to prevent the leakage of your data. Please read this Privacy Policy carefully.<br><br>
-                
-                <strong>1. Private Information</strong><br>
-                This application is a standalone app that does not collect any personal information from users, nor does it upload any user information.<br><br>
-                
-                <strong>2. Data Sharing Authorization</strong><br>
-                This application does not share any user data with third parties. All device configurations and settings remain exclusively on your device.<br><br>
-                
-                <strong>3. Information Storage</strong><br>
-                All request information collected by AVCmd will be stored on the current device. This information will not be uploaded to any server and will only be viewed and shared by the user.<br><br>
-                
-                <strong>4. Information Security</strong><br>
-                The HTTPS decryption certificate for each device is generated individually. Unless you actively share it, others cannot obtain your certificate.<br><br>
-                
-                <strong>5. Network Security</strong><br>
-                This application communicates with AV equipment over local network using TCP, UDP, Telnet and HTTP protocols. For HTTP connections requiring authentication, your login credentials are stored locally on your device. You are responsible for maintaining the security of your network and connected devices.<br><br>
-                
-                <strong>6. Privacy Concerns</strong><br>
-                If you have any questions or concerns regarding our privacy policy or data handling practices, please email us at alexastafew@gmail.com<br><br>
-                
-                Last Updated: March 8, 2026
-            </p>
+            <h3 style="color: #7b4f9e;">Privacy Policy</h3>
+            <p>This Privacy Policy outlines the approach of this App regarding the handling of private data, aiming to prevent the leakage of your data. Please read this Privacy Policy carefully.</p>
+            <p><strong>1. Private Information</strong><br>
+            This application is a standalone app that does not collect any personal information from users, nor does it upload any user information.</p>
+            <p><strong>2. Data Sharing Authorization</strong><br>
+            This application does not share any user data with third parties. All device configurations and settings remain exclusively on your device.</p>
+            <p><strong>3. Information Storage</strong><br>
+            All request information collected by AVCmd will be stored on the current device. This information will not be uploaded to any server and will only be viewed and shared by the user.</p>
+            <p><strong>4. Information Security</strong><br>
+            The HTTPS decryption certificate for each device is generated individually. Unless you actively share it, others cannot obtain your certificate.</p>
+            <p><strong>5. Network Security</strong><br>
+            This application communicates with AV equipment over local network using TCP, UDP, Telnet and HTTP protocols. For HTTP connections requiring authentication, your login credentials are stored locally on your device. You are responsible for maintaining the security of your network and connected devices.</p>
+            <p><strong>6. Privacy Concerns</strong><br>
+            If you have any questions or concerns regarding our privacy policy or data handling practices, please email us at alexastafew@gmail.com</p>
+            <p>Last Updated: March 11, 2026</p>
             <button onclick="document.getElementById('privacyModal').style.display='none'">Close</button>
         </div>
     </div>
-    
-    <script>
-        document.getElementById('subscribeForm').addEventListener('submit', function(e) {
-            e.preventDefault(); 
-            
-            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxAT1u6_xNDQL7cmXAoWkhmenASSUttDgHukbSf1yZGKhsc8Na0L9zHREd7PESa65Yz/exec';
-            
-            const formData = new FormData(this);
-            const successDiv = document.getElementById('successMessage');
-            
-            successDiv.style.display = 'block';
-            successDiv.textContent = 'Send...';
-            
-            fetch(SCRIPT_URL, {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.result === 'success') {
-                    successDiv.textContent = 'Thank you for your question.';
-                    document.getElementById('nameField').value = '';
-                    document.getElementById('emailField').value = '';
-                    document.getElementById('questionField').value = '';
-                } else {
-                    successDiv.textContent = 'Ошибка: ' + data.message;
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                successDiv.textContent = 'Thank you for your question.';
-            })
-            .finally(() => {
-                setTimeout(() => {
-                    successDiv.style.display = 'none';
-                }, 3000);
-            });
-        });
 
-        document.getElementById('privacyLink').addEventListener('click', function(e) {
+    <script>
+        // Google Apps Script URL (рабочий из index.html)
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxAT1u6_xNDQL7cmXAoWkhmenASSUttDgHukbSf1yZGKhsc8Na0L9zHREd7PESa65Yz/exec';
+        
+        // Элементы формы
+        const form = document.getElementById('subscribeForm');
+        const submitBtn = document.getElementById('submitButton');
+        const successDiv = document.getElementById('successMessage');
+        const errorDiv = document.getElementById('errorMessage');
+        const nameField = document.getElementById('nameField');
+        const emailField = document.getElementById('emailField');
+        const questionField = document.getElementById('questionField');
+        
+        // Функция показа сообщения
+        function showMessage(element, text, isError = false) {
+            element.textContent = text;
+            element.style.display = 'block';
+            
+            if (!isError) {
+                element.style.background = '#e5e5ea';
+                element.style.color = '#7b4f9e';
+            } else {
+                element.style.background = '#ffe5e5';
+                element.style.color = '#d32f2f';
+            }
+            
+            setTimeout(() => {
+                element.style.display = 'none';
+            }, 5000);
+        }
+        
+        // Функция для валидации email
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+        
+        // Отправка формы
+        form.addEventListener('submit', async function(e) {
             e.preventDefault();
-            document.getElementById('privacyModal').style.display = 'flex';
+            
+            // Валидация
+            const name = nameField.value.trim();
+            const email = emailField.value.trim();
+            const question = questionField.value.trim();
+            
+            if (!name) {
+                showMessage(errorDiv, 'Please enter your name', true);
+                return;
+            }
+            
+            if (!email) {
+                showMessage(errorDiv, 'Please enter your email', true);
+                return;
+            }
+            
+            if (!isValidEmail(email)) {
+                showMessage(errorDiv, 'Please enter a valid email address', true);
+                return;
+            }
+            
+            // Показываем состояние загрузки
+            const originalButtonText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<span class="loading-spinner"></span>Sending...';
+            submitBtn.disabled = true;
+            
+            // Скрываем предыдущие сообщения
+            successDiv.style.display = 'none';
+            errorDiv.style.display = 'none';
+            
+            // Создаем FormData
+            const formData = new FormData();
+            formData.append('entry.1151277867', name);
+            formData.append('entry.2054839464', email);
+            formData.append('entry.1103374442', question);
+            
+            try {
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (data.result === 'success') {
+                    // Очищаем форму
+                    nameField.value = '';
+                    emailField.value = '';
+                    questionField.value = '';
+                    
+                    // Показываем успех
+                    showMessage(successDiv, 'Thank you for your question! We\'ll reply soon.');
+                } else {
+                    // Ошибка от сервера
+                    showMessage(errorDiv, 'Error: ' + (data.message || 'Something went wrong'), true);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showMessage(errorDiv, 'Network error. Please check your connection and try again.', true);
+            } finally {
+                // Восстанавливаем кнопку
+                submitBtn.innerHTML = originalButtonText;
+                submitBtn.disabled = false;
+            }
         });
         
+        // Функция открытия модального окна политики конфиденциальности
+        function openPrivacy(e) {
+            e.preventDefault();
+            document.getElementById('privacyModal').style.display = 'flex';
+        }
+
+        // Привязываем обработчики ко всем ссылкам Privacy Policy
+        document.getElementById('privacyLink').addEventListener('click', openPrivacy);
+        document.getElementById('privacyLink2').addEventListener('click', openPrivacy);
+        document.getElementById('privacyLink3').addEventListener('click', openPrivacy);
+        
+        // Обработчики для ссылок Drivers Library
+        document.getElementById('driversLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.open('https://github.com/alastafew/drivers-library', '_blank');
+        });
+        
+        document.getElementById('driversLink2').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.open('https://github.com/alastafew/drivers-library', '_blank');
+        });
+        
+        // Закрытие модального окна по клику на фон
         window.addEventListener('click', function(e) {
-            if (e.target === document.getElementById('privacyModal')) {
-                document.getElementById('privacyModal').style.display = 'none';
+            const modal = document.getElementById('privacyModal');
+            if (e.target === modal) {
+                modal.style.display = 'none';
             }
+        });
+        
+        // Обработка FAQ ссылок - скролл к форме
+        document.getElementById('faqLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        document.getElementById('faqLink2').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
         });
     </script>
 </body>
