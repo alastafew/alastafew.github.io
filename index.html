@@ -5,540 +5,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>AVCommander — Professional AV Control for iPhone & iPad</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Helvetica, Arial, sans-serif;
-            background: white;
-            color: #1d1d1f;
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        h1, h2, h3, p, a, span, div, input, textarea, button {
-            font-family: Helvetica, Arial, sans-serif;
-        }
-
-        h1, h2, h3 {
-            font-weight: 600;
-            letter-spacing: -0.02em;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            line-height: 1.1;
-        }
-
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .subhead {
-            font-size: 1.2rem;
-            color: #6b6b70;
-            max-width: 600px;
-            margin-bottom: 2rem;
-        }
-
-        .navbar {
-            padding: 20px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .logo-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .app-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(123, 79, 158, 0.3);
-            object-fit: cover;
-            border: 1px solid rgba(123, 79, 158, 0.2);
-        }
-
-        .logo {
-            font-size: 1.6rem;
-            font-weight: 600;
-            background: linear-gradient(135deg, #5a3087, #9b6fc7);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            color: transparent;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #1d1d1f;
-            font-weight: 500;
-            font-size: 1rem;
-        }
-
-        .nav-links a:hover {
-            color: #7b4f9e;
-        }
-
-        .btn-outline {
-            border: 1.5px solid #7b4f9e;
-            color: #7b4f9e;
-            padding: 8px 18px;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: all 0.2s;
-        }
-
-        .btn-outline:hover {
-            background: #7b4f9e;
-            color: white !important;
-        }
-
-        .hero {
-            padding: 40px 0 60px;
-        }
-
-        .hero-grid {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-
-        .hero-content {
-            flex: 1 1 400px;
-        }
-
-        .hero-content h1 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            margin-bottom: 0.5rem;
-        }
-
-        .hero-content .badge {
-            display: inline-block;
-            background: #e8e1f2;
-            color: #5a2e8a;
-            font-size: 0.9rem;
-            font-weight: 600;
-            padding: 6px 16px;
-            border-radius: 40px;
-            margin-bottom: 20px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-            margin: 30px 0 20px;
-        }
-
-        .btn-primary {
-            background: #7b4f9e;
-            color: white;
-            text-decoration: none;
-            padding: 14px 34px;
-            border-radius: 40px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            border: none;
-            cursor: pointer;
-            display: inline-block;
-            transition: background 0.2s;
-            box-shadow: 0 10px 20px -8px rgba(58, 27, 94, 0.3);
-        }
-
-        .btn-primary:hover {
-            background: #5a2e8a;
-        }
-
-        .btn-primary:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: #1d1d1f;
-            border: 1.5px solid #c6c6c8;
-            text-decoration: none;
-            padding: 14px 34px;
-            border-radius: 40px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: border 0.2s;
-        }
-
-        .btn-secondary:hover {
-            border-color: #7b4f9e;
-        }
-
-        .hero-mockup {
-            flex: 1 1 300px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .hero-mockup img {
-            max-width: 100%;
-            height: auto;
-            background: transparent;
-        }
-
-        .features {
-            padding: 60px 0;
-            background: white;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin-top: 40px;
-        }
-
-        .feature-card {
-            background: #f9f9fb;
-            padding: 32px 24px;
-            border-radius: 28px;
-            border: 1px solid #f0f0f3;
-            transition: transform 0.2s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-4px);
-        }
-
-        .app-icon-large {
-            width: 60px;
-            height: 60px;
-            border-radius: 16px;
-            background: linear-gradient(135deg, #5a2e8a, #7b4f9e);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            box-shadow: 0 10px 20px rgba(123, 79, 158, 0.3);
-        }
-
-        .app-icon-large span {
-            font-size: 2rem;
-            font-weight: 600;
-            color: white;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 12px;
-        }
-
-        .feature-card p {
-            color: #515154;
-        }
-
-        .privacy-banner {
-            background: #1d1d1f;
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        .privacy-banner h2 {
-            color: white;
-        }
-
-        .privacy-banner p {
-            max-width: 600px;
-            margin: 0 auto 30px;
-            color: #a1a1a6;
-            font-size: 1.1rem;
-        }
-
-        .pill {
-            background: #2a2a2e;
-            color: #f5f5f7;
-            padding: 8px 20px;
-            border-radius: 60px;
-            display: inline-block;
-            font-weight: 500;
-        }
-
-        .footer {
-            background: #f0eaf8;
-            padding: 50px 0 30px;
-            border-top: 1px solid #e5e5ea;
-        }
-
-        .footer-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 40px;
-        }
-
-        .footer-col p {
-            color: #636366;
-            margin: 10px 0;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: #1d1d1f;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-        }
-
-        .footer-links a:hover {
-            color: #7b4f9e;
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 50px;
-            color: #8e8e93;
-            font-size: 0.8rem;
-        }
-
-        #privacyModal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.8);
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            z-index: 1000;
-        }
-
-        .modal-content {
-            background: white;
-            max-width: 500px;
-            width: 90%;
-            max-height: 80vh;
-            padding: 30px;
-            border-radius: 36px;
-            overflow-y: auto;
-            box-shadow: 0 40px 60px rgba(0,0,0,0.5);
-        }
-
-        .modal-content h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-        }
-
-        .modal-content p {
-            margin-bottom: 20px;
-            color: #3a3a3c;
-        }
-
-        .modal-content button {
-            background: #5a2e8a;
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 40px;
-            font-weight: 600;
-            cursor: pointer;
-            font-family: Helvetica, Arial, sans-serif;
-        }
-
-        .form-group {
-            margin-bottom: 16px;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 16px 20px;
-            border: 1.5px solid #e5e5ea;
-            border-radius: 30px;
-            font-size: 1rem;
-            background: white;
-            font-family: Helvetica, Arial, sans-serif;
-            transition: border-color 0.2s;
-        }
-
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: #7b4f9e;
-        }
-
-        textarea {
-            min-height: 100px;
-            resize: vertical;
-        }
-
-        .success-message {
-            background: #e5e5ea;
-            color: #7b4f9e;
-            padding: 12px;
-            border-radius: 30px;
-            text-align: center;
-            margin: 10px 0;
-            display: none;
-            font-family: Helvetica, Arial, sans-serif;
-        }
-        
-        .error-message {
-            background: #ffe5e5;
-            color: #d32f2f;
-            padding: 12px;
-            border-radius: 30px;
-            text-align: center;
-            margin: 10px 0;
-            display: none;
-            font-family: Helvetica, Arial, sans-serif;
-        }
-        
-        .loading-spinner {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 2px solid rgba(255,255,255,0.3);
-            border-radius: 50%;
-            border-top-color: white;
-            animation: spin 0.8s linear infinite;
-            margin-right: 8px;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        .btn-primary.loading {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, Helvetica, Arial, sans-serif; background: white; color: #1d1d1f; line-height: 1.5; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        h1, h2, h3, h4 { font-weight: 600; letter-spacing: -0.02em; }
+        h1 { font-size: 2.5rem; line-height: 1.1; }
+        h2 { font-size: 2rem; margin-bottom: 1rem; }
+        h3 { font-size: 1.5rem; margin-top: 1.5rem; margin-bottom: 1rem; }
+        h4 { font-size: 1.2rem; margin-top: 1.2rem; margin-bottom: 0.8rem; color: #7b4f9e; }
+        .subhead { font-size: 1.2rem; color: #6b6b70; max-width: 600px; margin-bottom: 2rem; }
+        .navbar { padding: 20px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .logo-wrapper { display: flex; align-items: center; gap: 12px; }
+        .app-icon { width: 40px; height: 40px; border-radius: 10px; box-shadow: 0 5px 15px rgba(123, 79, 158, 0.3); object-fit: cover; }
+        .logo { font-size: 1.6rem; font-weight: 600; background: linear-gradient(135deg, #5a3087, #9b6fc7); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-links { display: flex; gap: 30px; align-items: center; flex-wrap: wrap; }
+        .nav-links a { text-decoration: none; color: #1d1d1f; font-weight: 500; cursor: pointer; }
+        .nav-links a:hover { color: #7b4f9e; }
+        .btn-outline { border: 1.5px solid #7b4f9e; color: #7b4f9e; padding: 8px 18px; border-radius: 30px; font-weight: 600; transition: all 0.2s; }
+        .btn-outline:hover { background: #7b4f9e; color: white !important; }
+        .hero { padding: 40px 0 60px; }
+        .hero-grid { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
+        .hero-content { flex: 1 1 400px; }
+        .hero-content .badge { display: inline-block; background: #e8e1f2; color: #5a2e8a; font-size: 0.9rem; font-weight: 600; padding: 6px 16px; border-radius: 40px; margin-bottom: 20px; }
+        .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; margin: 30px 0 20px; }
+        .btn-primary { background: #7b4f9e; color: white; text-decoration: none; padding: 14px 34px; border-radius: 40px; font-weight: 600; font-size: 1.1rem; display: inline-block; transition: background 0.2s; box-shadow: 0 10px 20px -8px rgba(58, 27, 94, 0.3); }
+        .btn-primary:hover { background: #5a2e8a; }
+        .hero-mockup { flex: 1 1 300px; display: flex; justify-content: center; }
+        .hero-mockup img { max-width: 100%; height: auto; }
+        .features { padding: 60px 0; background: white; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; margin-top: 40px; }
+        .feature-card { background: #f9f9fb; padding: 32px 24px; border-radius: 28px; border: 1px solid #f0f0f3; transition: transform 0.2s; }
+        .feature-card:hover { transform: translateY(-4px); }
+        .app-icon-large { width: 60px; height: 60px; border-radius: 16px; background: linear-gradient(135deg, #5a2e8a, #7b4f9e); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+        .app-icon-large span { font-size: 2rem; font-weight: 600; color: white; }
+        .feature-card h3 { font-size: 1.5rem; margin-bottom: 12px; }
+        .feature-card p { color: #515154; }
+        .faq-section { background: #f9f9fb; border-radius: 40px; margin: 40px 0; overflow: hidden; }
+        .faq-header { background: #7b4f9e; color: white; padding: 24px 32px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-header:hover { background: #5a2e8a; }
+        .faq-header h2 { margin: 0; color: white; font-size: 1.8rem; }
+        .faq-toggle-icon { font-size: 2rem; font-weight: 300; }
+        .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out; background: white; }
+        .faq-content.open { max-height: none; overflow: visible; transition: none; }
+        .manual-inner { padding: 40px 48px; }
+        .manual-inner .iphone-frame { background: #111; border-radius: 44px; padding: 12px; box-shadow: 0 20px 35px -12px rgba(0,0,0,0.3), inset 0 0 0 2px rgba(255,255,255,0.1); display: inline-block; }
+        .manual-inner .iphone-frame img { border-radius: 32px; display: block; max-width: 100%; height: auto; }
+        .manual-inner .screenshot-container { text-align: center; margin: 24px 0; }
+        .manual-inner .image-gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin: 20px 0; }
+        .manual-inner .image-gallery .iphone-frame { max-width: calc(50% - 20px); min-width: 200px; }
+        .manual-inner img { max-width: 100%; height: auto; border-radius: 12px; }
+        .manual-inner h2 { color: #7b4f9e; margin-top: 0; border-bottom: 2px solid #f0eaf8; padding-bottom: 12px; }
+        .manual-inner h3 { color: #7b4f9e; margin-top: 32px; }
+        .manual-inner p { margin-bottom: 16px; color: #3a3a3c; }
+        .manual-inner ul, .manual-inner ol { margin: 16px 0 16px 24px; color: #3a3a3c; }
+        .manual-inner li { margin-bottom: 8px; }
+        .manual-inner a { color: #7b4f9e; text-decoration: none; }
+        .manual-inner a:hover { text-decoration: underline; }
+        .troubleshoot-table { width: 100%; border-collapse: collapse; margin: 20px 0; background: #f9f9fb; border-radius: 16px; overflow: hidden; }
+        .troubleshoot-table th, .troubleshoot-table td { padding: 12px 16px; text-align: left; border-bottom: 1px solid #e5e5ea; vertical-align: top; }
+        .troubleshoot-table th { background: #7b4f9e; color: white; font-weight: 600; width: 30%; }
+        .troubleshoot-table tr:last-child td, .troubleshoot-table tr:last-child th { border-bottom: none; }
+        .note-box { background: #f0eaf8; padding: 20px; border-radius: 20px; margin: 20px 0; border-left: 4px solid #7b4f9e; }
+        .code-block { background: #1d1d1f; color: #e5e5ea; padding: 12px 16px; border-radius: 12px; font-family: monospace; font-size: 0.9rem; margin: 12px 0; overflow-x: auto; }
+        .footer { background: #f0eaf8; padding: 50px 0 30px; border-top: 1px solid #e5e5ea; }
+        .footer-grid { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; }
+        .footer-col p { color: #636366; margin: 10px 0; }
+        .footer-links { display: flex; gap: 40px; flex-wrap: wrap; }
+        .footer-links a { color: #1d1d1f; text-decoration: none; display: block; margin-bottom: 8px; font-size: 0.9rem; cursor: pointer; }
+        .footer-links a:hover { color: #7b4f9e; }
+        .copyright { text-align: center; padding-top: 50px; color: #8e8e93; font-size: 0.8rem; }
+        #privacyModal { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); align-items: center; justify-content: center; padding: 20px; z-index: 1000; }
+        .modal-content { background: white; max-width: 500px; width: 90%; max-height: 80vh; padding: 30px; border-radius: 36px; overflow-y: auto; }
+        .modal-content h3 { font-size: 1.8rem; margin-bottom: 20px; }
+        .modal-content button { background: #5a2e8a; color: white; border: none; padding: 12px 30px; border-radius: 40px; font-weight: 600; cursor: pointer; }
+        .form-group { margin-bottom: 16px; }
+        input, textarea { width: 100%; padding: 16px 20px; border: 1.5px solid #e5e5ea; border-radius: 30px; font-size: 1rem; background: white; }
+        input:focus, textarea:focus { outline: none; border-color: #7b4f9e; }
+        .success-message, .error-message { padding: 12px; border-radius: 30px; text-align: center; margin: 10px 0; display: none; }
+        .success-message { background: #e5e5ea; color: #7b4f9e; }
+        .error-message { background: #ffe5e5; color: #d32f2f; }
+        .loading-spinner { display: inline-block; width: 20px; height: 20px; border: 2px solid rgba(255,255,255,0.3); border-radius: 50%; border-top-color: white; animation: spin 0.8s linear infinite; margin-right: 8px; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .back-to-top { position: fixed; bottom: 30px; right: 30px; background: #7b4f9e; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; transition: opacity 0.3s; z-index: 100; }
+        .back-to-top.visible { opacity: 1; }
+        .back-to-top:hover { background: #5a2e8a; }
+        @media (max-width: 700px) { h1 { font-size: 2.2rem; } .hero-grid { flex-direction: column-reverse; } .navbar { flex-direction: column; align-items: start; } .manual-inner { padding: 24px; } .manual-inner .image-gallery .iphone-frame { max-width: 100%; } }
         @media (prefers-color-scheme: dark) {
-            body {
-                background: #1a1a1e;
-                color: white;
-            }
-            
-            .nav-links a {
-                color: white;
-            }
-            
-            .features {
-                background: #1a1a1e;
-            }
-            
-            .feature-card {
-                background: #2c2c2e;
-                border-color: #3a3a3c;
-            }
-            
-            .feature-card p {
-                color: #aeaeb2;
-            }
-            
-            .footer {
-                background: #1a1a1e;
-                border-top-color: #3a3a3c;
-            }
-            
-            .footer-links a {
-                color: white;
-            }
-            
-            .footer-col p {
-                color: #aeaeb2;
-            }
-            
-            .btn-secondary {
-                color: white;
-                border-color: #3a3a3c;
-            }
-            
-            .logo {
-                background: white;
-                -webkit-background-clip: text;
-                background-clip: text;
-                -webkit-text-fill-color: transparent;
-                color: transparent;
-            }
-            
-            .success-message {
-                background: #2c2c2e;
-                color: #b79cd9;
-            }
-            
-            .error-message {
-                background: #2c1a1a;
-                color: #ff8a8a;
-            }
-            
-            .modal-content {
-                background: #2c2c2e;
-            }
-            
-            .modal-content p {
-                color: #aeaeb2;
-            }
-            
-            input, textarea {
-                background: #2c2c2e;
-                border-color: #3a3a3c;
-                color: white;
-            }
-            
-            input:focus, textarea:focus {
-                border-color: #9b6fc7;
-            }
-        }
-
-        @media (max-width: 700px) {
-            h1 { font-size: 2.2rem; }
-            .hero-grid { flex-direction: column-reverse; }
-            .navbar { flex-direction: column; align-items: start; }
+            body { background: #1a1a1e; color: white; }
+            .nav-links a { color: white; }
+            .features { background: #1a1a1e; }
+            .feature-card { background: #2c2c2e; border-color: #3a3a3c; }
+            .feature-card p { color: #aeaeb2; }
+            .faq-section { background: #2c2c2e; }
+            .faq-content { background: #1a1a1e; }
+            .manual-inner p, .manual-inner li { color: #aeaeb2; }
+            .manual-inner a { color: #9b6fc7; }
+            .troubleshoot-table { background: #2c2c2e; }
+            .troubleshoot-table td { border-bottom-color: #3a3a3c; }
+            .note-box { background: #2c2c2e; }
+            .footer { background: #1a1a1e; border-top-color: #3a3a3c; }
+            .footer-links a { color: white; }
+            .footer-col p { color: #aeaeb2; }
+            .modal-content { background: #2c2c2e; }
+            .modal-content p { color: #aeaeb2; }
+            input, textarea { background: #2c2c2e; border-color: #3a3a3c; color: white; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <nav class="navbar"> 
-            <div class="logo-wrapper"> 
-                <img src="https://drive.google.com/thumbnail?id=1q1RRhGPpkfMnMT8rb7ZKbCI7XGH3jdva&sz=w200" alt="AVCommander App Icon" class="app-icon" onerror="this.style.display='none'">
+        <nav class="navbar">
+            <div class="logo-wrapper">
+                <img src="https://drive.google.com/thumbnail?id=1q1RRhGPpkfMnMT8rb7ZKbCI7XGH3jdva&sz=w200" alt="AVCommander App Icon" class="app-icon">
                 <div class="logo" style="font-size: 1.8rem;">AVCommander</div>
             </div>
             <div class="nav-links">
                 <a href="#" id="driversLink">Drivers Library</a>
-                <a href="#contact" id="faqLink">FAQ</a>
+                <a href="#" id="faqNavLink">User Manual</a>
                 <a href="#" id="privacyLink">Privacy Policy</a>
                 <a href="https://apps.apple.com/en/app/avcommander/id6760185878" class="btn-outline">Download for iPhone</a>
             </div>
@@ -566,27 +149,9 @@
         <div class="container">
             <h2>Built for professionals. Works instantly.</h2>
             <div class="features-grid">
-                <div class="feature-card">
-                    <div class="app-icon-large">
-                        <span>1</span>
-                    </div>
-                    <h3>Add Your Device</h3>
-                    <p>Camera, Audio, Video, Congress System, Codec and Other categorys. The app provides basic commands for each, but you can easily extend them.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="app-icon-large">
-                        <span>2</span>
-                    </div>
-                    <h3>Easy To Use</h3>
-                    <p>Build your own interface with buttons, sliders, and toggles. Set device-specific settings.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="app-icon-large">
-                        <span>3</span>
-                    </div>
-                    <h3>Save Config File.</h3>
-                    <p>Just enter the IP address, port, and API commands. For even faster setup, you can upload pre-configured commands via a JSON file</p>
-                </div>
+                <div class="feature-card"><div class="app-icon-large"><span>1</span></div><h3>Add Your Device</h3><p>Camera, Audio, Video, Congress System, Codec and Other categories. The app provides basic commands for each, but you can easily extend them.</p></div>
+                <div class="feature-card"><div class="app-icon-large"><span>2</span></div><h3>Easy To Use</h3><p>Build your own interface with buttons, sliders, and toggles. Set device-specific settings.</p></div>
+                <div class="feature-card"><div class="app-icon-large"><span>3</span></div><h3>Save Config File</h3><p>Just enter the IP address, port, and API commands. For even faster setup, you can upload pre-configured commands via a JSON file.</p></div>
             </div>
             <div style="background: #f0eaf8; border-radius: 60px; padding: 30px; margin-top: 50px; text-align: center;">
                 <a href="https://github.com/alastafew/drivers-library" target="_blank" style="text-decoration: none; color: #1d1d1f; display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap;">
@@ -597,86 +162,204 @@
         </div>
     </section>
 
-    <div class="container" style="padding: 60px 0;" id="contact">
-        <div style="max-width: 600px; margin: 0 auto; background: white; border-radius: 40px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 2px solid #f0eaf8;">
-            <h2 style="margin-bottom: 10px; color: #7b4f9e;">Have a question?</h2>
-        
-            <form id="subscribeForm">
-                <div class="form-group">
-                    <input type="text" id="nameField" name="entry.1151277867" placeholder="Your name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" id="emailField" name="entry.2054839464" placeholder="Your email" required>
-                </div>
-                <div class="form-group">
-                    <textarea id="questionField" name="entry.1103374442" placeholder="Your question (max 450 characters)" maxlength="450"></textarea>
-                </div>
-                <button type="submit" id="submitButton" class="btn-primary" style="width: 100%;">Send</button>
-                <div id="successMessage" class="success-message"></div>
-                <div id="errorMessage" class="error-message"></div>
-            </form>
+    <div class="container" id="faqSection">
+        <div class="faq-section">
+            <div class="faq-header" id="faqHeader">
+                <h2 style="text-align: center; flex: 1;">AVCommander User Manual</h2>
+                <span class="faq-toggle-icon" id="faqToggleIcon">▼</span>
+            </div>
+            <div class="faq-content" id="faqContent">
+                <div class="manual-inner">
+                    <h2>AVCommander User Manual</h2>
 
-            <div style="text-align: center; margin-top: 30px;">
-                <a href="#" id="privacyLink2" style="color: #7b4f9e;">Privacy Policy</a>
-                <span style="margin: 0 10px;">•</span>
-                <a href="mailto:alexastafew@gmail.com" style="color: #7b4f9e;">alexastafew@gmail.com</a>
+                    <h3>OVERVIEW</h3>
+                    <p>AVCommander is a professional application for iPhone and iPad that turns your iOS device into a powerful AV equipment control panel over IP networks. Instead of complex programming and using third-party controllers, AVCommander allows you to create an intuitive control interface "on the fly" by simply adding devices and their commands. The application is suitable for controlling DSP processors, HDMI matrices, PTZ cameras, video walls, VCS codecs, and any other equipment that supports TCP, UDP, Telnet, SSH, or HTTP protocols.</p>
+
+                    <h3>KEY FEATURES</h3>
+                    <ul>
+                        <li><strong>Dynamic Interface Generation:</strong> The control interface is built automatically based on the devices and commands you add.</li>
+                        <li><strong>Wide Equipment Support:</strong> Ready-made UI templates for Audio (DSP), Video (matrices, video walls), Camera (PTZ), Codec, Congress, and other device types.</li>
+                        <li><strong>Flexible Command Management:</strong> Ability to add, edit, and delete commands. Support for buttons, toggles, and sliders.</li>
+                        <li><strong>Multiple Protocols:</strong> Native support for TCP, UDP, Telnet, SSH, and HTTP (REST API).</li>
+                        <li><strong>Import and Export Configurations:</strong> Fast system deployment and backup using JSON files.</li>
+                        <li><strong>Access Protection:</strong> Ability to set a UI password to prevent unauthorized access to settings.</li>
+                        <li><strong>Server Independence:</strong> Direct peer-to-peer communication with equipment without intermediate servers.</li></ul>
+
+                    <h3>GETTING STARTED WITH AVCOMMANDER</h3>
+                    <h4>Download and Installation</h4>
+                    <ol><li>Go to the App Store on your iPhone or iPad.</li><li>Find the AVCommander application and install.</li><li>Choose a lite or dark theme on your iPhone or iPad. The app is adaptive.</li></ol>
+
+                    <h4>Basic Settings</h4>
+                    <ol><li>Launch the application.</li><li>Go to the "Settings" ⚙️ section by tapping the corresponding icon.</li></ol>
+
+                    <div class="screenshot-container"><div class="image-gallery"><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=13_Yzd7KW9g3ajB7yHiqEqYbhV1-f3mQv&sz=w400" alt="Settings Screen"></div><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=10U2aM77t5LzZpxpL9ZowEnEVUaBZIK6_&sz=w400" alt="Settings Screen"></div></div></div>
+
+                    <ul><li><strong>Language:</strong> Select your preferred interface language: English, Arabic, Chinese, French, German, Hindi, Italian, Japanese, Korean, Dutch, Polish, Portuguese, Russian, Spanish, Swedish, Thai, Turkish.</li>
+                    
+                    <li><strong>UI Password:</strong> Set a 6-digit password to lock access to Edit Mode from Control Mode. This adds a layer of security.</li>
+                    <div class="screenshot-container"><div class="image-gallery"><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=10Q-XAbeHliR5CeAdtOJKGczi9BfT7yJF&sz=w400" alt="UI Pass"></div><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=1jGTb_CHqY6uBDsFIO0SvVNTWxIvBIQ8M&sz=w400" alt="UI Lock"></div></div></div>
+
+                    <li><strong>Configuration:</strong> Here you can Export To JSON Config File (export the current configuration of all devices to a JSON file for backup) or Import From JSON Config File (import a ready-made configuration for quick system deployment). 
+                    <p>Ready-made configurations are available in the <a href="https://github.com/alastafew/drivers-library" target="_blank" style="color: #7b4f9e; text-decoration: none;">Drivers Library</a>.</p>
+                    </li></ul>
+                    <div class="screenshot-container"><div class="image-gallery"><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=1qHrpapdCpeKRFr3kv9aH9so1G_qMhMcF&sz=w400" alt="Export JSON"></div><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=1Csuwcc1cKY6VzLi3oPs_-YT19-kua8kj&sz=w400" alt="Import JSON"></div></div></div>
+
+                    <h3>EDIT MODE - ADDING DEVICES</h3>
+                    <p>In this mode, you add, configure, and remove devices. To enter it, tap the "Edit Mode" button on the main screen.</p>
+
+                    <h4>Adding a New Device</h4>
+                    <ol><li>While in Edit Mode, tap the "Add New" button.</li></ol>
+                    <div class="screenshot-container"><div class="image-gallery"><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=13_Yzd7KW9g3ajB7yHiqEqYbhV1-f3mQv&sz=w400" alt="Add New Device"></div><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=1UoAqoVkxZjrRPVd5VBHOHdunLDc092P-&sz=w400"  alt="Add New Device"></div></div></div>
+
+
+                    <p>In the popup window, select the device type:</p>
+                    <ul><li><strong>Audio:</strong> For DSP processors, mixers, etc. You can give a custom name to sources when creating a device. By default Input/Output.</li></ul>
+                    <div class="screenshot-container"><div class="image-gallery"><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=1vY5QZBZ05ZMNuGGOXkMk-hv3q_MF59uE&sz=w400" alt="Audio Device"></div><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=1E1TNcCQ00WCZ9pzKtAW4jWqTxumNzTuU&sz=w400" alt="Audio Settings"></div></div></div>
+
+                    <ul><li><strong>Video:</strong> For matrices, video processors, video walls. You can give a custom name to sources when creating a device. By default Input/Output or Source.</li></ul>
+                    <div class="screenshot-container"><div class="image-gallery"><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=1IOFQHmeDZhKUV_MsRfpNSWWae2kbLeQt&sz=w400" alt="Video Device 1"></div><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=14aTv9h0gWafJU3vQH2MY-3Vt5nc4rAnC&sz=w400" alt="Video Device 2"></div><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=1sV4RHTx_A8e7IgNg9VKXWpPpZHguHdQO&sz=w400" alt="Video Device 3"></div><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=10_yPVsNe4P0KXYfCSUh96J_AuFj-irdy&sz=w400" alt="Video Device 4"></div></div></div>
+
+                    <ul><li><strong>Camera:</strong> For PTZ cameras.</li></ul>
+                    <div class="screenshot-container"><div class="image-gallery"><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=1FdSZpboRxxC1Jd8cJP_GyKdG0arAYAf4&sz=w400" alt="Camera Device"></div><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=1VY8YQgH0272NcwkuTOhxtci9aodg_T2X&sz=w400" alt="Camera Settings"></div></div></div>
+
+                    <ul><li><strong>Codec:</strong> For video conferencing codecs.</li></ul>
+                    <div class="screenshot-container"><div class="image-gallery"><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=1I5R8js18581IxKGUHzp6MuJbOcidVPEP&sz=w400" alt="Codec Device"></div><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=1n1Y04b4dfgRSzTO9CU2wQ2qK_E0aV1DW&sz=w400" alt="Codec Settings"></div></div></div>
+
+                    <ul><li><strong>Congress:</strong> For congress systems and conferencing systems.</li></ul>
+                    <div class="screenshot-container"><div class="image-gallery"><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=1Q6fBz7GGMO9Ky-abr6IpByR8UtnzZ79K&sz=w400" alt="Congress Device"></div><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=1BxketV8fJNhukOnnvToLbeQBOC2g8Xi2&sz=w400" alt="Congress Settings"></div></div></div>
+
+                    <ul><li><strong>Other:</strong> For any other IP-controllable equipment (players, TVs, LED screens, etc.).</li></ul>
+                    <div class="screenshot-container"><div class="image-gallery"><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=19GolkNFZIBbYdoap_mkPTGHsBvTkZXzH&sz=w400" alt="Other Device"></div><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=1akjo484TOhpdTqdDNOFbkDf38r_tHCcX&sz=w400" alt="Other Device"></div></div></div>
+
+                    <p>Fill in the device information:</p>
+                    <ul><li><strong>Device name:</strong> Enter a descriptive name (e.g., "Barco GreenBCM").</li><li><strong>IP-address:</strong> Enter the device's IP address on the local network (e.g., 192.168.0.100).</li><li><strong>Port:</strong> Specify the control port (e.g., 23 for Telnet, 80 for HTTP).</li><li><strong>Protocol:</strong> Select the communication protocol: TCP, UDP, Telnet, SSH, or HTTP.</li></ul>
+                    <div class="screenshot-container"><div class="image-gallery"><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=1CVXkfNDl8kyzkeytbW7kydkdl3z_OhVP&sz=w400" alt="Add New Device"></div><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=1KiWgy52W4nLP0L4cbROJZgAz7e3W2bon&sz=w400" alt="Add New Device"></div></div></div>
+
+                    <p>Tap "Save" to save the device. It will appear in the list. The device is saved automatically.</p>
+                    <p>By tapping and holding the device cell, you can move it up or down the list.</p>
+                    <p>To delete a device, swipe left on it. A confirmation dialog will appear.</p>
+                    <div class="screenshot-container"><div class="image-gallery"><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=13_Yzd7KW9g3ajB7yHiqEqYbhV1-f3mQv&sz=w400" alt="Delete Device"></div><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=1oPqPD57rOM2RxxmV-HK1AgG9cnJTcdow&sz=w400" alt="Delete Device"></div></div></div>
+
+                    <h4>Editing a Device</h4>
+                    <p>In Edit Mode, tap the cell of the desired device. The "Edit Device" screen opens, where you can:</p>
+                    <div class="screenshot-container"><div class="image-gallery"><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=1CVXkfNDl8kyzkeytbW7kydkdl3z_OhVP&sz=w400" alt="Delete Device"></div><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=1KiWgy52W4nLP0L4cbROJZgAz7e3W2bon&sz=w400" alt="Delete Device"></div></div></div>
+
+                    <ul><li>Modify basic settings (name, IP, port, protocol).</li>
+                        <li>Move device commands. The device's core commands cannot be deleted, hidden, or moved.</li>
+                        <div class="screenshot-container"><div class="image-gallery"><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=1VpDAXKQbPGP5wba2GysR_0N42WkAJ0c4&sz=w400" alt="Move Command"></div><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=1hBmrycWZz8tVx0xJIAxBsIivSoUVZn_3&sz=w400" alt="Move Command"></div></div></div>
+
+                        <li>Add new device commands.</li>
+                        <li>Click the 👁️‍🗨️ icon to hide or show device commands in the UI.</li>
+                        <div class="screenshot-container"><div class="image-gallery"><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=1gstLcNRl_R88keF3Ne5PVGac4WCnq9_0&sz=w400" alt="Move Command"></div><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=1eIhPBqT0xDL-IVI_1ibvgdkO2t9q2aL5&sz=w400" alt="Move Command"></div></div></div>
+
+                        <li>Delete device commands.</li>
+                    </ul>
+                    <div class="screenshot-container"><div class="image-gallery"><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=1qd9vDX3XCqivrzgxCjTP1kcWmVOD9mxg&sz=w400" alt="Delete Command"></div><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=1dzYHQNUdEF7JC7Ms-nSpVH9oVhxIoJYp&sz=w400" alt="Delete Command"></div></div></div>
+                    
+                    <h4>Managing Commands</h4>
+                    <p>In the "Device commands" section, you can create control elements for your device.</p>
+                    <ol>
+                        <li>Tap the "Add Command" button.</li>
+
+                        <li>The "Edit Command" screen opens, where you need to configure:<ul><li><strong>Button name:</strong> The name displayed on the button (e.g., "Power On", "Up", "Preset 1").</li><li><strong>Command:</strong> The actual command to send to the device.<ul><li><strong>ASCII:</strong> Text string, e.g., <code>[POWR1]\r\n</code></li><li><strong>HEX:</strong> Hexadecimal code, e.g., <code>5B 50 4F 57 52 31 5D 0D 0A</code></li><li><strong>HTTP:</strong> Endpoint path, e.g., <code>/cgi-bin/api.cgi?cmd=move</code></li></ul></li></ul></li>
+                        
+                        <div class="screenshot-container"><div class="image-gallery"><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=1HXN1nsXK5_A1lINZsu1JSe4qg5cXyzXk&sz=w400" alt="Delete Command"></div><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=16_zsVvk9eKMKdRlxNESFgQXc713xdGxA&sz=w400" alt="Delete Command"></div></div></div>
+                        
+                        <li><strong>Important:</strong> For sliders and toggles, you can use variables:<div class="code-block">VolumeSet{$V} — where {$V} is the slider value in ASCII format<br>VolumeSet{$H} — where {$H} is the slider value in HEX format<br>Power{$ON} — where {$ON} will substitute 'ON' or 'OFF'<br>Power{$On} — where {$On} will substitute 'On' or 'Off'</div></li>
+                        
+                        <li><strong>Format:</strong> Select ASCII or HEX command format.</li>
+                        
+                        <li><strong>Type:</strong> Select how the control element will appear:<ul><li><strong>button:</strong> Simple tap.</li><li><strong>slider:</strong> For value control (volume, brightness). When this type is selected, additional fields appear for Min, Max, and Symbol (e.g., dB, %).</li><li><strong>toggle:</strong> Can have two states (On/Off or 0/1).</li></ul></li>
+                        
+                        <div class="screenshot-container"><div class="image-gallery"><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=17gu1tep6rx3mFWRkE1PdrOs2iciHSANt&sz=w400" alt="Delete Command"></div><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=1xJ6FEx9oTaXLHE--fG_FARNpz5Zn4QCf&sz=w400" alt="Delete Command"></div></div></div>
+    
+                        <li>Tap "Save" to add the command. The new control element will appear on the device card and UI.</li>                     
+                    </ol>
+
+                    <h3>CONTROL MODE</h3>
+                    <ol><li>To switch to control mode, tap the "Build New UI" button.</li>
+                        <li>You will see device categories. Tap on a category card to open the control panel. Each device will appear in the UI by name and in the order added (top to bottom).</li>
+                        <div class="screenshot-container">
+                            <img src="https://drive.google.com/thumbnail?id=1do5I7lk2kRlTpJulEoKFhiRs49nEpUvQ&sz=w800" alt="AVCommander on iPhone">
+                        </div>
+                        <li>The control panel displays all the elements you created: buttons, toggles, and sliders. Simply tap them to send commands to the equipment.</li></ol>
+
+                    <h3>PASSWORD</h3>
+                    <h4>UI Password</h4>
+                    <ol>
+                        <li>Go to "Settings".</li>
+                        <li>Tap on "UI Password".</li>
+                        <li>Enter a 6-digit password and confirm it.</li>
+                        <div class="screenshot-container"><div class="image-gallery"><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=10Q-XAbeHliR5CeAdtOJKGczi9BfT7yJF&sz=w400" alt="UI Pass"></div><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=1jGTb_CHqY6uBDsFIO0SvVNTWxIvBIQ8M&sz=w400" alt="UI Lock"></div></div></div>
+
+                        <li>After this, the password will be required each time you exit Control Mode. To lock exiting the app, use the Guided Access feature on iPhone or iPad.</li>
+                        <div class="screenshot-container"><div class="image-gallery"><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=1aRKIMzZxuOh4ZZmMB4vGXD6cMpFfbVEJ&sz=w400" alt="UI Pass"></div><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=1usH-jOVLoF0iGFx49N6dP1xPTF1SZhtJ&sz=w400" alt="UI Lock"></div></div></div>
+                        
+                        <li>To remove the password, go to Settings, tap "UI Password" and select "Delete password to unlock UI?" in the dialog box.</li>
+                        <div class="screenshot-container"><div class="image-gallery"><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=10yEWyU5SXkstwYpAVbzJpE5YG-sju_sH&sz=w400" alt="UI Pass"></div><div class="iphone-frame"><img src="https://drive.google.com/thumbnail?id=1PlxZ5nh7bhvz-4KYoNqFOS16sRixxpqi&sz=w400" alt="UI Lock"></div></div></div>
+                    </ol>
+
+                    <h3>TROUBLESHOOTING</h3>
+                    <table class="troubleshoot-table">
+<thead>
+<tr><th>Problem</th><th>Possible Solutions</th></tr>
+</thead>
+<tbody>
+<tr><td>Device does not respond to commands</td><td>1. Verify the IP address and port in device settings.<br>2. Ensure your iOS device and AV equipment are on the same network.<br>3. Check that the correct protocol is selected (TCP, UDP, Telnet, SSH).<br>4. Verify the command format (ASCII or HEX).<br>5. Check command syntax (e.g., presence of \r\n characters).</td></tr>
+<tr><td>Device does not appear in the list</td><td>1. Make sure you are in "Edit Mode".<br>2. Verify that the device was successfully added (a confirmation message appears when saving).</td></tr>
+<tr><td>Cannot import JSON file</td><td>1. Ensure the file has the correct structure and is not corrupted.<br>2. Try exporting the current configuration to see the reference JSON structure.<br>3. Try importing a JSON configuration from the <a href="https://github.com/alastafew/drivers-library" target="_blank" style="color: #7b4f9e; text-decoration: none;">Drivers Library</a>.</td></tr>
+<tr><td>Forgot UI password</td><td>Unfortunately, for security reasons, the password cannot be recovered. The only solution is to delete and reinstall the app. All device configurations will be lost if you did not export them beforehand.</td></tr>
+</tbody>
+</table>
+
+                    <h3>FAQ (Frequently Asked Questions)</h3>
+                    <div class="note-box"><p><strong>Which protocols does AVCommander support?</strong><br>The app natively supports TCP, UDP, Telnet, SSH, and HTTP (REST API).</p><p><strong>Can I control devices across different subnets?</strong><br>Yes, as long as your network router is configured to route traffic between the subnets. The app communicates directly with the IP addresses you provide.</p><p><strong>How do I hide a command from the UI without deleting it?</strong><br>In "Edit Device", tap the "eye" icon next to the command name. Commands without an "eye" icon are mandatory and cannot be hidden or deleted.</p><p><strong>Where can I find ready-made device command configurations?</strong><br><a href="https://github.com/alastafew/drivers-library" target="_blank" style="color: #7b4f9e; text-decoration: none;">Drivers Library Link</a></p><p><strong>Does the app collect my personal data?</strong><br>No. AVCommander is a standalone app that does not collect or upload any user information. All device configurations and settings remain exclusively on your device.</p></div>
+                </div>
             </div>
         </div>
     </div>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
-                        <img src="https://drive.google.com/thumbnail?id=1q1RRhGPpkfMnMT8rb7ZKbCI7XGH3jdva&sz=w200" alt="AVCommander App Icon" class="app-icon" style="width: 40px; height: 40px;" onerror="this.style.display='none'">
-                        <div class="logo" style="font-size: 1.8rem;">AVCommander</div>
-                    </div>
-                    <p>Professional AV control for iPhone and iPad.</p>
-                </div>
-                <div class="footer-links">
-                    <div>
-                        <a href="#" id="driversLink2">Drivers Library</a>
-                        <a href="#contact" id="faqLink2">FAQ</a>
-                    </div>
-                    <div>
-                        <a href="#" id="privacyLink3">Privacy Policy</a>
-                        <a href="https://apps.apple.com/en/app/avcommander/id6760185878">Download for iPad</a>
-                    </div>
-                </div>
+    <div class="container" style="padding: 0 0 60px 0;" id="contact">
+    <div style="max-width: 600px; margin: 0 auto; background: white; border-radius: 40px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 2px solid #f0eaf8;">
+        <h2 style="margin-bottom: 10px; color: #7b4f9e;">Have a question?</h2>
+        <form id="subscribeForm">
+            <div class="form-group">
+                <input type="text" id="nameField" name="entry.1151277867" placeholder="Your name" required>
             </div>
-            <div class="copyright">
-                © <script>document.write(new Date().getFullYear())</script> AVCommander.
+            <div class="form-group">
+                <input type="email" id="emailField" name="entry.2054839464" placeholder="Your email" required>
             </div>
-        </div>
-    </footer>
-
-    <div id="privacyModal">
-        <div class="modal-content">
-            <h3 style="color: #7b4f9e;">Privacy Policy</h3>
-            <p>This Privacy Policy outlines the approach of this App regarding the handling of private data, aiming to prevent the leakage of your data. Please read this Privacy Policy carefully.</p>
-            <p><strong>1. Private Information</strong><br>
-            This application is a standalone app that does not collect any personal information from users, nor does it upload any user information.</p>
-            <p><strong>2. Data Sharing Authorization</strong><br>
-            This application does not share any user data with third parties. All device configurations and settings remain exclusively on your device.</p>
-            <p><strong>3. Information Storage</strong><br>
-            All request information collected by AVCmd will be stored on the current device. This information will not be uploaded to any server and will only be viewed and shared by the user.</p>
-            <p><strong>4. Information Security</strong><br>
-            The HTTPS decryption certificate for each device is generated individually. Unless you actively share it, others cannot obtain your certificate.</p>
-            <p><strong>5. Network Security</strong><br>
-            This application communicates with AV equipment over local network using TCP, UDP, Telnet and HTTP protocols. For HTTP connections requiring authentication, your login credentials are stored locally on your device. You are responsible for maintaining the security of your network and connected devices.</p>
-            <p><strong>6. Privacy Concerns</strong><br>
-            If you have any questions or concerns regarding our privacy policy or data handling practices, please email us at alexastafew@gmail.com</p>
-            <p>Last Updated: March 11, 2026</p>
-            <button onclick="document.getElementById('privacyModal').style.display='none'">Close</button>
+            <div class="form-group">
+                <textarea id="questionField" name="entry.1103374442" placeholder="Your question (max 450 characters)" maxlength="450"></textarea>
+            </div>
+            <button type="submit" id="submitButton" class="btn-primary" style="width: 100%;">Send</button>
+            <div id="successMessage" class="success-message"></div>
+            <div id="errorMessage" class="error-message"></div>
+        </form>
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="#" id="privacyLink2" style="color: #7b4f9e;">Privacy Policy</a>
+            <span style="margin: 0 10px;">•</span>
+            <a href="mailto:alexastafew@gmail.com" style="color: #7b4f9e;">alexastafew@gmail.com</a>
         </div>
     </div>
+</div>
+
+    <footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-col"><div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;"><img src="https://drive.google.com/thumbnail?id=1q1RRhGPpkfMnMT8rb7ZKbCI7XGH3jdva&sz=w200" alt="AVCommander App Icon" class="app-icon" style="width: 40px; height: 40px;"><div class="logo" style="font-size: 1.8rem;">AVCommander</div></div><p>Professional AV control for iPhone and iPad.</p></div><div class="footer-links"><div><a href="#" id="driversLink2">Drivers Library</a><a href="#" id="faqFooterLink">User Manual</a></div><div><a href="#" id="privacyLink3">Privacy Policy</a><a href="https://apps.apple.com/en/app/avcommander/id6760185878">Download for iPad</a></div></div></div><div class="copyright">© 2026 AVCommander.</div></div></footer>
+
+    <div id="privacyModal"><div class="modal-content"><h3 style="color: #7b4f9e;">Privacy Policy</h3><p>This Privacy Policy outlines the approach of this App regarding the handling of private data, aiming to prevent the leakage of your data. Please read this Privacy Policy carefully.</p><p><strong>1. Private Information</strong><br>This application is a standalone app that does not collect any personal information from users, nor does it upload any user information.</p><p><strong>2. Data Sharing Authorization</strong><br>This application does not share any user data with third parties. All device configurations and settings remain exclusively on your device.</p><p><strong>3. Information Storage</strong><br>All request information collected by AVCmd will be stored on the current device. This information will not be uploaded to any server and will only be viewed and shared by the user.</p><p><strong>4. Information Security</strong><br>The HTTPS decryption certificate for each device is generated individually. Unless you actively share it, others cannot obtain your certificate.</p><p><strong>5. Network Security</strong><br>This application communicates with AV equipment over local network using TCP, UDP, Telnet and HTTP protocols. For HTTP connections requiring authentication, your login credentials are stored locally on your device. You are responsible for maintaining the security of your network and connected devices.</p><p><strong>6. Privacy Concerns</strong><br>If you have any questions or concerns regarding our privacy policy or data handling practices, please email us at alexastafew@gmail.com</p><p>Last Updated: March 11, 2026</p><button onclick="document.getElementById('privacyModal').style.display='none'">Close</button></div></div>
+    <div class="back-to-top" id="backToTop">↑</div>
 
     <script>
-        // Google Apps Script URL (рабочий из index.html)
+        const faqHeader = document.getElementById('faqHeader');
+        const faqContent = document.getElementById('faqContent');
+        const faqToggleIcon = document.getElementById('faqToggleIcon');
+        function toggleFaq() { faqContent.classList.toggle('open'); faqToggleIcon.textContent = faqContent.classList.contains('open') ? '▲' : '▼'; }
+        faqHeader.addEventListener('click', toggleFaq);
+        function scrollToFaq(e) { e.preventDefault(); const fs = document.getElementById('faqSection'); if (fs) { if (!faqContent.classList.contains('open')) toggleFaq(); fs.scrollIntoView({ behavior: 'smooth' }); } }
+        document.getElementById('faqNavLink').addEventListener('click', scrollToFaq);
+        document.getElementById('faqFooterLink').addEventListener('click', scrollToFaq);
+
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxAT1u6_xNDQL7cmXAoWkhmenASSUttDgHukbSf1yZGKhsc8Na0L9zHREd7PESa65Yz/exec';
-        
-        // Элементы формы
         const form = document.getElementById('subscribeForm');
         const submitBtn = document.getElementById('submitButton');
         const successDiv = document.getElementById('successMessage');
@@ -684,140 +367,41 @@
         const nameField = document.getElementById('nameField');
         const emailField = document.getElementById('emailField');
         const questionField = document.getElementById('questionField');
-        
-        // Функция показа сообщения
-        function showMessage(element, text, isError = false) {
-            element.textContent = text;
-            element.style.display = 'block';
-            
-            if (!isError) {
-                element.style.background = '#e5e5ea';
-                element.style.color = '#7b4f9e';
-            } else {
-                element.style.background = '#ffe5e5';
-                element.style.color = '#d32f2f';
-            }
-            
-            setTimeout(() => {
-                element.style.display = 'none';
-            }, 5000);
-        }
-        
-        // Функция для валидации email
-        function isValidEmail(email) {
-            const emailRegex = /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/;
-            return emailRegex.test(email);
-        }
-        
-        // Отправка формы
+
+        function showMessage(el, text, isError) { el.textContent = text; el.style.display = 'block'; setTimeout(() => { el.style.display = 'none'; }, 5000); }
+        function isValidEmail(e) { return /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/.test(e); }
+
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
-            
-            // Валидация
-            const name = nameField.value.trim();
-            const email = emailField.value.trim();
-            const question = questionField.value.trim();
-            
-            if (!name) {
-                showMessage(errorDiv, 'Please enter your name', true);
-                return;
-            }
-            
-            if (!email) {
-                showMessage(errorDiv, 'Please enter your email', true);
-                return;
-            }
-            
-            if (!isValidEmail(email)) {
-                showMessage(errorDiv, 'Please enter a valid email address', true);
-                return;
-            }
-            
-            // Показываем состояние загрузки
-            const originalButtonText = submitBtn.innerHTML;
+            const name = nameField.value.trim(), email = emailField.value.trim(), question = questionField.value.trim();
+            if (!name) { showMessage(errorDiv, 'Please enter your name', true); return; }
+            if (!email) { showMessage(errorDiv, 'Please enter your email', true); return; }
+            if (!isValidEmail(email)) { showMessage(errorDiv, 'Please enter a valid email address', true); return; }
+            const orig = submitBtn.innerHTML;
             submitBtn.innerHTML = '<span class="loading-spinner"></span>Sending...';
             submitBtn.disabled = true;
-            
-            // Скрываем предыдущие сообщения
-            successDiv.style.display = 'none';
-            errorDiv.style.display = 'none';
-            
-            // Создаем FormData
-            const formData = new FormData();
-            formData.append('entry.1151277867', name);
-            formData.append('entry.2054839464', email);
-            formData.append('entry.1103374442', question);
-            
+            successDiv.style.display = 'none'; errorDiv.style.display = 'none';
+            const fd = new FormData();
+            fd.append('entry.1151277867', name); fd.append('entry.2054839464', email); fd.append('entry.1103374442', question);
             try {
-                const response = await fetch(GOOGLE_SCRIPT_URL, {
-                    method: 'POST',
-                    body: formData
-                });
-                
-                const data = await response.json();
-                
-                if (data.result === 'success') {
-                    // Очищаем форму
-                    nameField.value = '';
-                    emailField.value = '';
-                    questionField.value = '';
-                    
-                    // Показываем успех
-                    showMessage(successDiv, 'Thank you for your question! We\'ll reply soon.');
-                } else {
-                    // Ошибка от сервера
-                    showMessage(errorDiv, 'Error: ' + (data.message || 'Something went wrong'), true);
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                showMessage(errorDiv, 'Thank you for your question! We\'ll reply soon..', true);
-            } finally {
-                // Восстанавливаем кнопку
-                submitBtn.innerHTML = originalButtonText;
-                submitBtn.disabled = false;
-            }
+                const res = await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', body: fd });
+                const data = await res.json();
+                if (data.result === 'success') { nameField.value = ''; emailField.value = ''; questionField.value = ''; showMessage(successDiv, 'Thank you for your question! We\'ll reply soon.', false); }
+                else { showMessage(errorDiv, 'Error: ' + (data.message || 'Something went wrong'), true); }
+            } catch (err) { showMessage(errorDiv, 'Thank you for your question! We\'ll reply soon.', true); }
+            finally { submitBtn.innerHTML = orig; submitBtn.disabled = false; }
         });
-        
-        // Функция открытия модального окна политики конфиденциальности
-        function openPrivacy(e) {
-            e.preventDefault();
-            document.getElementById('privacyModal').style.display = 'flex';
-        }
 
-        // Привязываем обработчики ко всем ссылкам Privacy Policy
+        function openPrivacy(e) { e.preventDefault(); document.getElementById('privacyModal').style.display = 'flex'; }
         document.getElementById('privacyLink').addEventListener('click', openPrivacy);
         document.getElementById('privacyLink2').addEventListener('click', openPrivacy);
         document.getElementById('privacyLink3').addEventListener('click', openPrivacy);
-        
-        // Обработчики для ссылок Drivers Library
-        document.getElementById('driversLink').addEventListener('click', function(e) {
-            e.preventDefault();
-            window.open('https://github.com/alastafew/drivers-library', '_blank');
-        });
-        
-        document.getElementById('driversLink2').addEventListener('click', function(e) {
-            e.preventDefault();
-            window.open('https://github.com/alastafew/drivers-library', '_blank');
-        });
-        
-        // Закрытие модального окна по клику на фон
-        window.addEventListener('click', function(e) {
-            const modal = document.getElementById('privacyModal');
-            if (e.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
-        
-        // Обработка FAQ ссылок - скролл к форме
-        document.getElementById('faqLink').addEventListener('click', function(e) {
-            e.preventDefault();
-            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-        });
-        
-        document.getElementById('faqLink2').addEventListener('click', function(e) {
-            e.preventDefault();
-            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-        });
+        document.getElementById('driversLink').addEventListener('click', e => { e.preventDefault(); window.open('https://github.com/alastafew/drivers-library', '_blank'); });
+        document.getElementById('driversLink2').addEventListener('click', e => { e.preventDefault(); window.open('https://github.com/alastafew/drivers-library', '_blank'); });
+        window.addEventListener('click', e => { const m = document.getElementById('privacyModal'); if (e.target === m) m.style.display = 'none'; });
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => { backToTop.classList.toggle('visible', window.scrollY > 300); });
+        backToTop.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
     </script>
 </body>
 </html>
